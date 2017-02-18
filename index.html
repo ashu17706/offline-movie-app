@@ -8,5 +8,20 @@
   <body>
     <h1>Simility App<h1>
     <script src="scripts/main.js"></script>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js', { scope: '/' })
+          .then(function(registration) {
+                console.log('Service Worker Registered');
+          })
+          .catch((err) => {
+            console.error('ServiceWorker registration failed');
+          });
+
+        navigator.serviceWorker.ready.then(function(registration) {
+           console.log('Service Worker Ready');
+        });
+      }
+  </script>
   </body>
 </html>
